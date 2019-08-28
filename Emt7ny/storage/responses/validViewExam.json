@@ -1,0 +1,74 @@
+{
+    "id": 21,
+    "duration": "02:00:00",
+    "title": "Arabic Exam 2018",
+    "instructions": "be quite",
+    "created_at": "2019-08-22 15:55:25",
+    "updated_at": "2019-08-22 15:55:25",
+    "full_mark": "6",
+    "questions": [
+        {
+            "id": 1,
+            "question": "Quae aut ex ex. Iure fuga voluptas vel culpa consectetur exercitationem. Ipsa dolores magnam amet aut.",
+            "fullmark": 2,
+            "examId": 21,
+            "created_at": "2019-08-22 15:51:04",
+            "updated_at": "2019-08-22 15:51:04",
+            "choices": [],
+            "pictures": [
+                {
+                    "id": 24,
+                    "image": "public\\img\\GXCUy.jpg",
+                    "questionId": 1
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "question": "Eos officiis excepturi quaerat quibusdam ut. Hic esse provident voluptate qui voluptates molestiae aut. Est nam quia rerum eveniet nostrum.",
+            "fullmark": 2,
+            "examId": 21,
+            "created_at": "2019-08-22 15:51:04",
+            "updated_at": "2019-08-22 15:51:04",
+            "choices": [],
+            "pictures": []
+        },
+        {
+            "id": 41,
+            "question": "Quod totam ut iusto earum. Laboriosam vero eaque expedita sed. Laborum nemo officia aliquid in dolore.",
+            "fullmark": 2,
+            "examId": 21,
+            "created_at": "2019-08-22 15:51:07",
+            "updated_at": "2019-08-22 15:51:07",
+            "choices": [
+                {
+                    "id": 1,
+                    "choice": "Quidem doloribus quam officia placeat sint iusto veritatis architecto.",
+                    "questionId": 41
+                },
+                {
+                    "id": 2,
+                    "choice": "Ut numquam modi dolorum.",
+                    "questionId": 41
+                },
+                {
+                    "id": 3,
+                    "choice": "Beatae assumenda alias suscipit asperiores voluptatibus est.",
+                    "questionId": 41
+                },
+                {
+                    "id": 4,
+                    "choice": "Quidem ducimus commodi rem dolor.",
+                    "questionId": 41
+                }
+            ],
+            "pictures": [
+                {
+                    "id": 30,
+                    "image": "public\\img\\E5Xkx.jpg",
+                    "questionId": 41
+                }
+            ]
+        }
+    ]
+}

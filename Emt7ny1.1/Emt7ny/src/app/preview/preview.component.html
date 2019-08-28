@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container-fluid" style="margin-top:16px;">
+  <a href="">
+    <img src="assets/img/logo.png" width="32px" height="32px" style="margin-left: 16px;margin-bottom: 12px;background-color: #54a0b5">
+    <p style="margin-top: 12px ;display:inline-block ;font-size: 32px;-webkit-text-fill-color:#54a0b5 ">mt7ny</p>
+  </a>
+  <i class="fa fa-user-circle" aria-hidden="true" routerLink="/profile/Muhanad" id="profileIcon" title="My profile"></i>
+  <button class="btn btn-light" id="logOut">Log out</button>
+  <hr>
+</div>
+<br><br><br>
+<div class="container" style="max-width:900px">
+  <div class="row">
+    <div class="col-md-12" style="text-align: center">
+      <h1>Question #1</h1>
+      <img src="../../assets/img/background.jpeg" id="image">
+      <i class="fa fa-trash edit" aria-hidden="true" id="delete" title="Delete"></i>
+      <i class="fa fa-pencil edit" aria-hidden="true" id="edit" title="Edit"></i>
+      <br><br>
+      <h4>what is this picture?</h4>
+      <button (click)="first.click()">
+        <input type="radio" name="answer" value="first" class="rad" #first [(ngModel)]="answer" checked> <h4 >first</h4>
+      </button>
+      <button (click)="second.click()">
+        <input type="radio" name="answer" value="second" class="rad" #second [(ngModel)]="answer" checked> <h4 >second</h4>
+      </button>
+      <button (click)="third.click()">
+        <input type="radio" name="answer" value="third" class="rad" #third [(ngModel)]="answer" checked> <h4>third</h4>
+      </button> 
+      <button (click)="forth.click()">
+        <input type="radio" name="answer" value="forth" class="rad" #forth [(ngModel)]="answer" checked> <h4>forth</h4>
+      </button> 
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-12" style="text-align: center">
+      <h1>Question #2</h1>
+      <img src="../../assets/img/background.jpeg" id="image">
+      <i class="fa fa-trash edit" aria-hidden="true" id="delete" title="Delete"></i>
+      <i class="fa fa-pencil edit" aria-hidden="true" id="edit" title="Edit"></i>
+      <br><br>
+      <h4>what is this picture?</h4>
+      <textarea name="question" id="question" placeholder="question"></textarea>
+    </div>
+  </div>
+  <hr>
+  <br><br><br><br><br><br><br>
+  <div class="row">
+    <div class="col-md-12" style="text-align: center">
+      <button class="btn btn-primary"><h3>Submit</h3></button>
+    </div>
+  </div>
+  <br><br><br><br><br>
+</div>
+

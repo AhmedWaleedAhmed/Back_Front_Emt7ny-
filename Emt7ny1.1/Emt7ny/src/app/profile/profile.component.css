@@ -1,0 +1,32 @@
+#image {
+    border-radius: 50%;
+    cursor: pointer;
+}
+#logOut {
+    float:right;
+    margin-top: 20px;
+}
+#name {
+    display:inline-block;
+    margin-left: 32px;
+}
+#ctr {
+    max-width: 700px;
+    padding: 0px;
+}
+#ctr:hover  #upload{
+    visibility: visible;
+}
+#upload {
+    visibility: hidden;
+    position: absolute;
+    color: gray;
+    top: 30%;
+    left: 17%;
+    transform: scale(3);
+    transform: translate(-50,-50);
+    cursor: pointer;
+}
+#editPBtn {
+    margin-left: 10%;
+}

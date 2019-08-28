@@ -1,0 +1,42 @@
+<body>
+  <a href="">
+    <img src="assets/img/logo.png" width="64px" height="64px" style="margin-left: 32px;margin-bottom: 48px;background-color: #54a0b5">
+    <p style="margin-top: 32px ;display:inline-block ;font-size: 64px;-webkit-text-fill-color:#54a0b5 ">mt7ny</p>
+  </a>
+  <div class="container" style="margin-top:32px;">
+    <div class="row" >
+      <div class="col-md-12" style="text-align: center;margin-bottom: 32px;">
+          <button class="btn btn-dark" id="choose-login" (click)="chooseLogin()">LOG IN</button>
+          <button class="btn btn-dark" id="choose-signup" (click)="chooseSignup()">SIGN UP</button>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngIf="login" class="col-md-12" id="logIn-div">
+          <h1 style="text-align: center;">Login</h1>
+        <input placeholder="Email" id="loginEmail" class="loginIn">
+        <input placeholder="Password" id="loginPassword" class="loginIn" type="password">
+        <button type="button" class="btn btn-default" id="loginBtn" routerLink='/AddQuestion'>Login</button>
+        <br> <br>
+       <a href="" onclick="return false;" style="margin-top:48px;margin-bottom: 100px;text-align: left" (click)="forgetPassword()">Forgot password?</a>
+       <br>
+       <input *ngIf ="isShown" placeholder="Enter your email to send you new password" id="forgotEmail" class="loginIn">
+       <button *ngIf ="isShown" type="button" class="btn btn-default" id="sendEmailBtn">Send email</button>
+     </div>
+     <div *ngIf="!login" class="col-md-12" id="signUp-div">
+       <h1 style="text-align: center;">Sign up</h1>
+       <h3 style="text-align: center;">(for students only)</h3>
+       <input placeholder="Name" id="signupName" class="signUp">
+       <input placeholder="Email" id="signUpEmail" class="signUp">
+       <input placeholder="Password" id="signUpPassword" class="signUp" type="password">
+       <input placeholder="Confirm password" id="signUpConfirmPassword" class="signUp" type="password">
+       <button type="button" class="btn btn-default" id="signUpBtn" routerLink="/profile/Name">sign up</button>
+     </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="row">
+      <div style="margin-bottom: 24px;text-align: center" class="col-md-12">
+        <a href="">contact us</a>
+      </div>
+    </div>
+  </div>
+</body>

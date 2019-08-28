@@ -1,0 +1,115 @@
+body {
+    background-image: url('../../assets/img/background.jpeg');
+}
+#logIn-div {
+    text-align: center;
+}
+.loginIn {
+    margin-top: 42px;
+    height: 48px;
+    max-width: 700px;
+    text-align: center;
+    font-size: 20px;
+    background-color: whitesmoke;
+    position: static;
+    float: none;
+    width: 100%;
+    border-radius: 12px;
+    border-style: solid;
+    border-color: whitesmoke;
+}
+.signUp {
+    margin-top: 42px;
+    height: 48px;
+    font-size: 20px;
+    max-width: 700px;
+    text-align: center;
+    background-color: whitesmoke;
+    position: static;
+    float: none;
+    width: 100%;
+    border-radius: 12px;
+    border-style: solid;
+    border-color: whitesmoke;
+}
+
+#loginBtn {
+    background-color: #343a40;
+    height: 40px;
+    margin-top: 42px;
+    width: 100px;
+    font-size: 18px;
+    -webkit-text-fill-color: white;
+    max-width: 700px;
+    text-align: center;
+    width: 100%;
+}
+#signUpBtn {
+    background-color: #343a40;
+    height: 40px;
+    margin-top: 42px;
+    width: 100px;
+    font-size: 18px;
+    -webkit-text-fill-color: white;
+    max-width: 700px;
+    width: 100%;
+}
+#sendEmailBtn {
+    background-color: #343a40;
+    height: 40px;
+    margin-top: 42px;
+    width: 100px;
+    font-size: 18px;
+    -webkit-text-fill-color: white;
+    width: 100%;
+    max-width: 700px;
+}
+#sendEmailBtn:hover {
+    background-color: rgb(43, 164, 204);
+    -webkit-text-fill-color: white;
+}
+#loginBtn:hover {
+    background-color: rgb(43, 164, 204);
+    -webkit-text-fill-color: white;
+}
+#signUpBtn:hover {
+    background-color: rgb(43, 164, 204);
+    -webkit-text-fill-color: white;
+}
+
+.loginIn:hover {
+    border-width: 2px;
+    border-style: solid;
+    border-color: lightblue;
+}
+.signUp:hover {
+    border-width: 2px;
+    border-style: solid;
+    border-color: lightblue;
+}
+#signUp-div {
+    text-align: center;
+}
+#choose-login {
+    height: 64px;
+    width: 128px;
+    background-color: rgb(43, 164, 204);
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-width: 0px;
+    border-style: solid;
+}
+#choose-signup {
+    height: 64px;
+    width: 128px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-width: 0px;
+    border-style: solid;
+}
+#choose-signup:hover {
+    background-color: #343a40;
+}
+#choose-login:hover {
+    background-color: rgb(43, 164, 204);
+}

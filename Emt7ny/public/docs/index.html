@@ -1,0 +1,1089 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/all.js"></script>
+
+
+          <script>
+        $(function() {
+            setupLanguages(["bash","javascript"]);
+        });
+      </script>
+      </head>
+
+  <body class="">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+        <img src="images/logo.png" />
+                    <div class="lang-selector">
+                                  <a href="#" data-language-name="bash">bash</a>
+                                  <a href="#" data-language-name="javascript">javascript</a>
+                            </div>
+                            <div class="search">
+              <input type="text" class="search" id="input-search" placeholder="Search">
+            </div>
+            <ul class="search-results"></ul>
+              <div id="toc">
+      </div>
+                    <ul class="toc-footer">
+                                  <li><a href='http://github.com/mpociot/documentarian'>Documentation Powered by Documentarian</a></li>
+                            </ul>
+            </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+          <!-- START_INFO -->
+<h1>Info</h1>
+<p>Welcome to the generated API reference.
+<a href="http://localhost/docs/collection.json">Get Postman Collection</a></p>
+<!-- END_INFO -->
+<h1>Exam</h1>
+<!-- START_72d1ed015c021175ad9b26612cdeacb5 -->
+<h2>Create Exam</h2>
+<p>A teacher creates exam and sets its title, instructions and duration.</p>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+It returns the exam id, and then the teacher can add questions to it.
+If there is no logged-in user or he is not a teacher, it returns an error</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/CreateExam" \
+    -H "Content-Type: application/json" \
+    -d '{"title":"Arabic_Exam_2018","instructions":"calculators are not allowed","duration":"02:30"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/CreateExam");
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "title": "Arabic_Exam_2018",
+    "instructions": "calculators are not allowed",
+    "duration": "02:30"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "The user is not a teacher"
+}</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "The user is not authorized"
+}</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 11
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/CreateExam</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>required</td>
+<td>The title of the exam.</td>
+</tr>
+<tr>
+<td>instructions</td>
+<td>text</td>
+<td>optional</td>
+<td>The instructions of the exam (if any).</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>time</td>
+<td>optional</td>
+<td>The duration of the exam, must follow the format <code>"H:i"</code>, default is <code>02:30</code>.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_72d1ed015c021175ad9b26612cdeacb5 -->
+<!-- START_e6f3bf6e79e0b09f4e5e1cd66b5b06d6 -->
+<h2>Edit Exam</h2>
+<p>A teacher edits an exam title, instructions and duration.</p>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Returns the exam data after edit.
+If the logged-in user is not a registered teacher of the exam it returns an error.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PATCH "http://localhost/api/EditExam" \
+    -H "Content-Type: application/json" \
+    -d '{"id":11,"title":"Arabic_Exam_2018","instructions":"calculators are not allowed","duration":"02:30"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/EditExam");
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "id": 11,
+    "title": "Arabic_Exam_2018",
+    "instructions": "calculators are not allowed",
+    "duration": "02:30"
+}
+
+fetch(url, {
+    method: "PATCH",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "The user is not a teacher"
+}</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "The user is not authorized"
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "The exam is not found"
+}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "the user is not a registered teacher of the exam"
+}</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 11,
+    "code": "45EeiadOFV",
+    "duration": "02:30:00",
+    "title": "english Exam 2018",
+    "instructions": null,
+    "teacherId": 12,
+    "created_at": "2019-08-20 03:02:32",
+    "updated_at": "2019-08-21 16:07:26"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PATCH api/EditExam</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>required</td>
+<td>The id of the exam to be edited.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>optional</td>
+<td>The new title of the exam.</td>
+</tr>
+<tr>
+<td>instructions</td>
+<td>text</td>
+<td>optional</td>
+<td>The new instructions of the exam.</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>time</td>
+<td>optional</td>
+<td>The new duration of the exam, must follow the format <code>"H:i"</code>, default is <code>02:30</code>.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_e6f3bf6e79e0b09f4e5e1cd66b5b06d6 -->
+<!-- START_82fc0150125d763685a1e3a6de676b4d -->
+<h2>View Exam</h2>
+<p>A user view an Exam data.</p>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+It returns title, instructions, duration, fullmark and questions of the exam.
+If the user isn't a registered student or teacher in the exam, it returns an error</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/ViewExam" \
+    -H "Content-Type: application/json" \
+    -d '{"id":11}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/ViewExam");
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "id": 11
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "The exam is not found"
+}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "the user is not a registerd student or teacher in the exam"
+}</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "The user is not authorized"
+}</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 21,
+    "duration": "02:00:00",
+    "title": "Arabic Exam 2018",
+    "instructions": "be quite",
+    "created_at": "2019-08-22 15:55:25",
+    "updated_at": "2019-08-22 15:55:25",
+    "full_mark": "6",
+    "questions": [
+        {
+            "id": 1,
+            "question": "Quae aut ex ex. Iure fuga voluptas vel culpa consectetur exercitationem. Ipsa dolores magnam amet aut.",
+            "fullmark": 2,
+            "examId": 21,
+            "created_at": "2019-08-22 15:51:04",
+            "updated_at": "2019-08-22 15:51:04",
+            "choices": [],
+            "pictures": [
+                {
+                    "id": 24,
+                    "image": "public\\img\\GXCUy.jpg",
+                    "questionId": 1
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "question": "Eos officiis excepturi quaerat quibusdam ut. Hic esse provident voluptate qui voluptates molestiae aut. Est nam quia rerum eveniet nostrum.",
+            "fullmark": 2,
+            "examId": 21,
+            "created_at": "2019-08-22 15:51:04",
+            "updated_at": "2019-08-22 15:51:04",
+            "choices": [],
+            "pictures": []
+        },
+        {
+            "id": 41,
+            "question": "Quod totam ut iusto earum. Laboriosam vero eaque expedita sed. Laborum nemo officia aliquid in dolore.",
+            "fullmark": 2,
+            "examId": 21,
+            "created_at": "2019-08-22 15:51:07",
+            "updated_at": "2019-08-22 15:51:07",
+            "choices": [
+                {
+                    "id": 1,
+                    "choice": "Quidem doloribus quam officia placeat sint iusto veritatis architecto.",
+                    "questionId": 41
+                },
+                {
+                    "id": 2,
+                    "choice": "Ut numquam modi dolorum.",
+                    "questionId": 41
+                },
+                {
+                    "id": 3,
+                    "choice": "Beatae assumenda alias suscipit asperiores voluptatibus est.",
+                    "questionId": 41
+                },
+                {
+                    "id": 4,
+                    "choice": "Quidem ducimus commodi rem dolor.",
+                    "questionId": 41
+                }
+            ],
+            "pictures": [
+                {
+                    "id": 30,
+                    "image": "public\\img\\E5Xkx.jpg",
+                    "questionId": 41
+                }
+            ]
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/ViewExam</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>required</td>
+<td>The id of the exam to be viewed.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_82fc0150125d763685a1e3a6de676b4d -->
+<!-- START_7815f128979e6b0f91e6087d90da243d -->
+<h2>Delete Exam</h2>
+<p>The creator of the exam deletes the exam.</p>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+The request returns a message that indicates that the exam is deleted successfully.
+If the logged-in user is not the creator of the exam
+(the first registered teacher of the exam), it returns an error.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "http://localhost/api/DeleteExam" \
+    -H "Content-Type: application/json" \
+    -d '{"id":11}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/DeleteExam");
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "id": 11
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "The user is not authorized"
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "The exam is not found"
+}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "The user is not the creator of the exam"
+}</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "result": "The exam is deleted successfully"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/DeleteExam</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>required</td>
+<td>The id of the exam to be deleted.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_7815f128979e6b0f91e6087d90da243d -->
+<!-- START_341cdb2cf502d00dfa983212aa69b4db -->
+<h2>Add Question</h2>
+<p>The registered teachers of the exam add question to it.</p>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+It returns the id of the added question.
+If the logged-in user is not a registered teacher of the exam, it returns an error</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/AddQuestion" \
+    -H "Content-Type: application/json" \
+    -d '{"examId":11,"question":"What's the area of Egypt?","fullmark":2}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/AddQuestion");
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "examId": 11,
+    "question": "What's the area of Egypt?",
+    "fullmark": 2
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "The user is not authorized"
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "The exam is not found"
+}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "The user is not a registered teacher of the exam"
+}</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 62
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/AddQuestion</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>examId</td>
+<td>integer</td>
+<td>required</td>
+<td>The id of the exam that the question is added to.</td>
+</tr>
+<tr>
+<td>question</td>
+<td>text</td>
+<td>required</td>
+<td>The text of the question to be added.</td>
+</tr>
+<tr>
+<td>fullmark</td>
+<td>integer</td>
+<td>optional</td>
+<td>The fullmark of the question to be added, default is 2.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_341cdb2cf502d00dfa983212aa69b4db -->
+<!-- START_0223a496ca82bf7145c1bcd29755c7bd -->
+<h2>Delete Question</h2>
+<p>The registered teachers of the exam removes a question.</p>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+It returns a message that indicates that the question is deleted successfully from the exam.
+If the logged-in user is not a registered teacher of the exam, it returns an error.
+If the given question doesn't belong to the given exam, it returns an error.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "http://localhost/api/DeleteQuestion" \
+    -H "Content-Type: application/json" \
+    -d '{"examId":11,"questionId":9}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/DeleteQuestion");
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "examId": 11,
+    "questionId": 9
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "The user is not authorized"
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "The exam is not found"
+}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "The user is not a registered teacher of the exam"
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "The question is not found"
+}</code></pre>
+<blockquote>
+<p>Example response (400):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "The question doesn't belong to the exam"
+}</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "result": "The question is deleted successfully"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/DeleteQuestion</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>examId</td>
+<td>integer</td>
+<td>required</td>
+<td>the id of the exam that the question is deleted from.</td>
+</tr>
+<tr>
+<td>questionId</td>
+<td>integer</td>
+<td>required</td>
+<td>the id of the question to be deleted from the exam.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_0223a496ca82bf7145c1bcd29755c7bd -->
+<h1>general</h1>
+<!-- START_c3fa189a6c95ca36ad6ac4791a873d23 -->
+<h2>login</h2>
+<p>login function</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/login" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/login");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/login</code></p>
+<!-- END_c3fa189a6c95ca36ad6ac4791a873d23 -->
+<!-- START_90f45d502fd52fdc0b289e55ba3c2ec6 -->
+<h2>signup</h2>
+<p>signup function</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/signup" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/signup");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/signup</code></p>
+<!-- END_90f45d502fd52fdc0b289e55ba3c2ec6 -->
+<!-- START_61739f3220a224b34228600649230ad1 -->
+<h2>logout</h2>
+<p>logout function</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/logout" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/logout");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/logout</code></p>
+<!-- END_61739f3220a224b34228600649230ad1 -->
+<!-- START_3fba263a38f92fde0e4e12f76067a611 -->
+<h2>Refresh a token.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/refresh" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/refresh");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/refresh</code></p>
+<!-- END_3fba263a38f92fde0e4e12f76067a611 -->
+<!-- START_d131f717df7db546af1657d1e7ce10f6 -->
+<h2>Get the authenticated User.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/me" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/me");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/me</code></p>
+<!-- END_d131f717df7db546af1657d1e7ce10f6 -->
+<!-- START_8252a6042116102f42d66fb4728ffa7f -->
+<h2>sendPasswordResetLink</h2>
+<p>this function will send email to the user to reset the password</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/sendPasswordResetLink" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/sendPasswordResetLink");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/sendPasswordResetLink</code></p>
+<!-- END_8252a6042116102f42d66fb4728ffa7f -->
+<!-- START_b4f4625b609a18310a50b1dddf752a55 -->
+<h2>api/resetPassword</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/resetPassword" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/resetPassword");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/resetPassword</code></p>
+<!-- END_b4f4625b609a18310a50b1dddf752a55 -->
+<!-- START_0b6b40575d0a5a6ab989fdc40b3bb8de -->
+<h2>EditProfile</h2>
+<p>this function will edit the profile of the user like edit (Photo  , name , password)</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PATCH "http://localhost/api/EditProfile" \
+    -H "Content-Type: application/json" \
+    -d '{"name":"consequuntur","password":"perspiciatis","image":"at"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/EditProfile");
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+}
+
+let body = {
+    "name": "consequuntur",
+    "password": "perspiciatis",
+    "image": "at"
+}
+
+fetch(url, {
+    method: "PATCH",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (201):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "true",
+    "userId": 2,
+    "userName": "Waleed",
+    "image": null
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "false",
+    "errors": "The name must be a string."
+}</code></pre>
+<blockquote>
+<p>Example response (201):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "false",
+    "Message": "nothing to be updated"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PATCH api/EditProfile</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>optional</td>
+<td>The new name of the user.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>optional</td>
+<td>The new password of the user.</td>
+</tr>
+<tr>
+<td>image</td>
+<td>binary</td>
+<td>optional</td>
+<td>The new image of the user.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_0b6b40575d0a5a6ab989fdc40b3bb8de -->
+<!-- START_106f0ed7641ecdc722f6dafc9527a291 -->
+<h2>ViewProfile</h2>
+<p>this function will view the profile of the user</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/ViewProfile" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/ViewProfile");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (201):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "true",
+    "userId": 2,
+    "userName": "Waleed",
+    "image": null,
+    "status_user": null,
+    "email": "ahmdwaleed@gmail.com"
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "false",
+    "Message": "There are a problem in this user"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/ViewProfile</code></p>
+<!-- END_106f0ed7641ecdc722f6dafc9527a291 -->
+<!-- START_f96f931eca837e23a9398eeac5535f84 -->
+<h2>DeleteProfile</h2>
+<p>this function will delete the profile of the user</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "http://localhost/api/DeleteProfile" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/DeleteProfile");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (201):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "true",
+    "Message": "user is deleted"
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "false",
+    "Message": "There are a problem in this user or already deleted"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/DeleteProfile</code></p>
+<!-- END_f96f931eca837e23a9398eeac5535f84 -->
+<!-- START_28fc0f72455b8a439bf2ff774f3103c1 -->
+<h2>viewTeacherExams</h2>
+<p>this function will view the infromations about the eaxams of the theacher</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/ViewTeacherExams" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/ViewTeacherExams");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (201):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "success",
+    "pages": [
+        {
+            "id": 1,
+            "code": "2006",
+            "duration": "00:00:00",
+            "instructions": "Answer",
+            "teacherId": 3,
+            "created_at": "2019-08-21 00:00:00",
+            "updated_at": "2019-08-21 00:00:00"
+        }
+    ]
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "false",
+    "Message": "There are a problem in this user or already deleted"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/ViewTeacherExams</code></p>
+<!-- END_28fc0f72455b8a439bf2ff774f3103c1 -->
+<!-- START_82cc58ca50669509b710365da6411bd9 -->
+<h2>ViewStudentExams</h2>
+<p>this function will view the infromations about the eaxams of the student</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET -G "http://localhost/api/ViewStudentExams" </code></pre>
+<pre><code class="language-javascript">const url = new URL("http://localhost/api/ViewStudentExams");
+
+let headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (201):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "success",
+    "pages": [
+        {
+            "id": 1,
+            "code": "2006",
+            "duration": "00:00:00",
+            "instructions": "Answer",
+            "teacherId": 3,
+            "created_at": "2019-08-21 00:00:00",
+            "updated_at": "2019-08-21 00:00:00"
+        }
+    ]
+}</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "false",
+    "Message": "There are a problem in this user or already deleted"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/ViewStudentExams</code></p>
+<!-- END_82cc58ca50669509b710365da6411bd9 -->
+      </div>
+      <div class="dark-box">
+                        <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                              </div>
+                </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+#logOut {
+    float:right;
+    margin-top: 20px;
+}
+#profileIcon {
+    position: absolute;
+    margin-top: 8px;
+    font-size: 64px;
+    color: #54a0b5;
+    cursor: pointer;
+    left: 50%;
+}
+#image {
+    max-width: 700px;
+}
+.rad {
+    margin-right: 5px;
+    size: 50px;
+}
+#question {
+    max-width: 700px;
+    text-align: unset;
+    font-size: 20px;
+    background-color: whitesmoke;
+    width: 100%;
+    border-radius: 12px;
+    border-style: solid;
+    border-color: whitesmoke;
+    min-height: 128px;
+}
+.edit {
+    margin-left: 16px;
+    font-size: 32px;
+    cursor: pointer;
+}
+#delete:hover {
+    color: red;
+}
+#edit:hover {
+    color: blue;
+}

@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container-fluid" style="margin-top:16px;">
+  <a href="">
+    <img src="assets/img/logo.png" width="32px" height="32px" style="margin-left: 16px;margin-bottom: 12px;background-color: #54a0b5">
+    <p style="margin-top: 12px ;display:inline-block ;font-size: 32px;-webkit-text-fill-color:#54a0b5 ">mt7ny</p>
+  </a>
+  <i class="fa fa-user-circle" aria-hidden="true" routerLink="/profile/Muhanad" id="profileIcon" title="My profile"></i>
+  <button class="btn btn-light" id="logOut">Log out</button>
+  <hr>
+</div>
+<br><br>
+<body>
+  <div class="container">       
+    <div class="row">
+      <div class="col-md-12" style="text-align: center">
+        <input type="text" id="title" placeholder="Title">
+        <br><br>
+        <input type="file" accept="image/*" style="display: none;" (change)="processImage($event)" #pic>
+        <br>
+        <div class="container" (click)="pic.click()" id="ctr">
+            <img src="{{imgUrl}}" id="image">
+            <i *ngIf="imgUrl !== '../../assets/img/grey.png'" class="fa fa-cloud-upload" id="upload" aria-hidden="true"></i> 
+            <h2 *ngIf="imgUrl !== '../../assets/img/grey.png' && answer !== 'MCQ'" id="upload-title">Upload image</h2>   
+        </div>
+        <br>
+        <textarea name="question" id="question" placeholder="question"></textarea>
+        <br><br><br>
+        <form *ngIf= "answer === 'MCQ'" id="mque">
+          <h5>1- <input type="text"></h5>
+          <h5>2- <input type="text"></h5>
+          <h5>3- <input type="text"></h5>
+          <h5>4- <input type="text"></h5> 
+          <br><br><br>
+        </form>
+        <h3>Answer will be ?</h3>
+        <button (click)="mcq.click()">
+          <input type="radio" name="answer" value="MCQ" class="rad" #mcq [(ngModel)]="answer" checked> <h4 >MCQ</h4>
+        </button>
+        <button (click)="tex.click()">
+          <input type="radio" name="answer" value="TEXT" class="rad" #tex [(ngModel)]="answer" checked> <h4 >Text area</h4>
+        </button>
+        <button (click)="dra.click()">
+          <input type="radio" name="answer" value="DRAWING" class="rad" #dra [(ngModel)]="answer" checked> <h4>Drawing area</h4>
+        </button> 
+        <br><br><br><br>
+        <button class="btn btn-primary" style="margin-right:16px;">Add question</button>
+        <button class="btn btn-danger" routerLink="/previewExam/Ahmed/1">Preview exam</button>
+      </div>
+    </div>
+  </div>
+</body>
+<div class="container">
+  <div class="row">
+    <div style="margin-bottom: 24px;text-align: center" class="col-md-12">
+      <a href="">contact us</a>
+    </div>
+  </div>
+</div>
