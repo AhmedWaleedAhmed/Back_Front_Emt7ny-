@@ -36,11 +36,17 @@ export class LoginComponent implements OnInit {
     this.isShown = false;
     document.getElementById("choose-login").style.backgroundColor = 'rgb(43, 164, 204)';
     document.getElementById("choose-signup").style.backgroundColor = '#343a40';
+    this.form.email='';
+    this.form.password='';
   }
   chooseSignup() {
     this.login = false;
     document.getElementById("choose-login").style.backgroundColor = '#343a40';
     document.getElementById("choose-signup").style.backgroundColor = 'rgb(43, 164, 204)';
+    this.form_signup.email='';
+    this.form_signup.name='';
+    this.form_signup.password='';
+    this.form_signup.password_confirmation='';
   }
 
   /*
@@ -90,8 +96,6 @@ export class LoginComponent implements OnInit {
   }
   handelResponse_2(data){
     this.token.handel(data.access_token);
-    //this.Auth.changeAuthStatus(true);
-    
     this.chooseLogin();
     this.router.navigateByUrl('/login');
   }

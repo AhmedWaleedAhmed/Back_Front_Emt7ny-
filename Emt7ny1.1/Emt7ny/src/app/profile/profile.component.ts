@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../Services/auth.service';
+import {  Router } from '@angular/router';
+import { TokenService } from '../Services/token.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +13,11 @@ export class ProfileComponent implements OnInit {
   pp: string = '../../assets/img/grey.png';
   reader: FileReader = new FileReader();
 
-  constructor() { }
+  constructor(
+    private router: Router ,
+    private Auth: AuthService,
+    private token:TokenService,
+  ) { }
 
   ngOnInit() {
   }
@@ -24,4 +31,11 @@ export class ProfileComponent implements OnInit {
     this.reader.readAsDataURL(this.uploadedImg);
   }
 
+
+  logout(event : MouseEvent){
+    event.preventDefault();
+    this.token.remove();
+    this.Auth.changeAuthStatus(false);
+    this.router.navigateByUrl('');
+  }
 }

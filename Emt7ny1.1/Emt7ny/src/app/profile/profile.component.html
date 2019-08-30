@@ -4,7 +4,7 @@
     <img src="assets/img/logo.png" width="32px" height="32px" style="margin-left: 16px;margin-bottom: 12px;background-color: #54a0b5">
     <p style="margin-top: 12px ;display:inline-block ;font-size: 32px;-webkit-text-fill-color:#54a0b5 ">mt7ny</p>
   </a>
-  <button class="btn btn-light" id="logOut">Log out</button>
+  <button class="btn btn-light" id="logOut" (click)="logout($event)">Log out</button>
 </div>
 <hr>
 <input type="file" accept="image/*" style="display: none;" (change)="processImage($event)" #pic>
