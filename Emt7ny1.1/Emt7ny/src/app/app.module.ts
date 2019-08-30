@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { AddQuestionComponent } from './add-question/add-question.component';
 import { PreviewComponent } from './preview/preview.component';
 import { ProfileComponent } from './profile/profile.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ProfileComponent } from './profile/profile.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
