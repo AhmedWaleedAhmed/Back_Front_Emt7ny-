@@ -1,0 +1,29 @@
+#logOut {
+    float:right;
+    margin-top: 20px;
+}
+.container-fluid {
+    width: 100%;
+    min-width: 700px;
+}
+#profileIcon {
+    position: absolute;
+    margin-top: 8px;
+    font-size: 64px;
+    color: #54a0b5;
+    cursor: pointer;
+    left: 50%;
+}
+.edit {
+    margin-left: 64px;
+    font-size: 32px;
+    cursor: pointer;
+}
+#correct:hover {
+    color: gold;
+}
+@media screen and (max-width: 725px) {
+    #profileIcon {
+        display: none;
+    }
+}

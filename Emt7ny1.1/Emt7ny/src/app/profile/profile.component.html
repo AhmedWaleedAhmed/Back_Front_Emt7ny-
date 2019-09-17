@@ -4,16 +4,184 @@
     <img src="assets/img/logo.png" width="32px" height="32px" style="margin-left: 16px;margin-bottom: 12px;background-color: #54a0b5">
     <p style="margin-top: 12px ;display:inline-block ;font-size: 32px;-webkit-text-fill-color:#54a0b5 ">mt7ny</p>
   </a>
-  <button class="btn btn-light" id="logOut" (click)="logout($event)">Log out</button>
+  <button class="btn btn-light" id="logOut" (click)="logout($event)">تسجيل الخروج</button>
 </div>
 <hr>
-<input type="file" accept="image/*" style="display: none;" (change)="processImage($event)" #pic>
 <br><br><br>
-<div (click)="pic.click()" id="ctr" style="display:inline-block;margin-left:10%;">
-    <img src="{{pp}}" id="image" width="256px" height="256px">
-    <i *ngIf="pp !== '../../assets/img/grey.png'" class="fa fa-cloud-upload" id="upload" aria-hidden="true"></i> 
+<div class="container">
+  <div class="row" style="float:right;">
+    <div class="col-md-12">
+      <button class="btn btn-light" id="edit-profile" routerLink='/editProfile/ahmed'>تعديل الصفحه الشخصية</button>
+      <h1 id="name">مرحبا! {{name}}</h1>
+    </div>
+  </div>
+  <br><br><br><br><br><br><br><br>
+
+  <div class="row" style="text-align: center" *ngIf="type == 0">
+    <div class="col-md-12">
+      <div style="border-style: solid;border-width: 3px;border-color: whitesmoke;">
+        <br>
+        <h3 style="-webkit-text-fill-color: tomato;">اضافة اعضاء جدد</h3>
+        <input type="text" id="exam-title" placeholder="اسم العضو" [(ngModel)]="newMemName">
+        <input type="text" id="exam-title" placeholder="اسم المستخدم للعضو" [(ngModel)]="newMemEmail">
+        <input type="text" id="exam-title" placeholder="كلمة السر المبدئية" [(ngModel)]="newMemPassword">
+        <br><br><br>
+        <h3>نوع العضو</h3>
+        <label class="radio-inline">
+          <input [(ngModel)]="newType" type="radio" name="type" value="0">ادمن
+        </label>
+        <label class="radio-inline">
+          <input [(ngModel)]="newType" type="radio" name="type" value="1">سكرتير
+        </label>
+        <label class="radio-inline">
+          <input [(ngModel)]="newType" type="radio" name="type" value="2">مدرس
+        </label>
+        <label class="radio-inline">
+          <input [(ngModel)]="newType" type="radio" name="type"value="3">مساعد مدرس
+        </label>
+        <label class="radio-inline">
+          <input [(ngModel)]="newType" type="radio" name="type" value="4">طالب
+        </label>
+        <button class="btn btn-primary add" (click)="newMember()">عضو جديد</button>        
+        <br><br>
+      </div>
+      <div style="border-style: solid;border-width: 3px;border-color: whitesmoke;margin-top: 64px;">
+        <br>
+        <h3 style="-webkit-text-fill-color: tomato;">الغاء اعضاء</h3>
+        <input type="text" id="exam-title" placeholder="اسم المستخدم للعضو" [(ngModel)]="deleteMemEmail">
+        <br>
+        <button class="btn btn-primary add" (click)="deleteMember()">الغاء العضو</button>        
+        <br><br>
+      </div>
+      <br><br><br><br><br><br>
+      <h1 style="-webkit-text-fill-color: #54a0b5"><b>الامتحانات</b></h1>
+      <div calss="container" style="text-align: center">
+        <div class="row" style="margin-top:64px;">
+            <div class="col-md-4">
+              <h2 style="display:inline-block;-webkit-text-fill-color: #54a0b5">الامتحان</h2>
+            </div>
+            <div class="col-md-4">
+              <h2 style="display:inline-block;-webkit-text-fill-color: #54a0b5">اسم المدرس</h2>
+            </div>
+            <div class="col-md-4">
+              <h2 style="display:inline-block;-webkit-text-fill-color: #54a0b5">عدد الطلاب</h2>
+            </div>
+        </div>
+        <div>
+          <br><br>
+          <div class="row">
+            <div class="col-md-4">
+              <h2>اول امتحان عربي</h2>
+            </div>
+            <div class="col-md-4">
+              <h2>محمد عبدالسلام</h2>
+            </div>
+            <div class="col-md-4">
+              <h2>504</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="text-align: center" *ngIf="type == 1">
+    <div class="col-md-12">
+      <div style="border-style: solid;border-width: 3px;border-color: whitesmoke;">
+        <br>
+        <h3 style="-webkit-text-fill-color: tomato;">اضافة اعضاء جدد</h3>
+        <input type="text" id="exam-title" placeholder="اسم الطالب" [(ngModel)]="newMemName">
+        <input type="text" id="exam-title" placeholder="اسم المستخدم للطالب" [(ngModel)]="newMemEmail">
+        <input type="text" id="exam-title" placeholder="كلمة السر المبدئية" [(ngModel)]="newMemPassword">
+        <br>
+        <button class="btn btn-primary add" (click)="newMember()">عضو جديد</button>    
+        <br><br>    
+      </div>
+      <div style="border-style: solid;border-width: 3px;border-color: whitesmoke;margin-top: 64px;">
+        <br>
+        <h3 style="-webkit-text-fill-color: tomato;">اضافة طالب الي امتحان</h3>
+        <h3>لغه عربيه 1 استاذ محمد عبدالسلام</h3>
+        <input type="text" id="exam-title" placeholder="اسم المستخدم">
+        <button class="btn btn-primary add" (click)="addStudentToExam()">اضافة الطالب</button>        
+        <br><br>
+      </div>
+      <br><br><br>
+    </div>
+  </div>
+
+  <div class="row" style="text-align: center" *ngIf="type == 2">
+    <div class="col-md-12">
+      <div style="border-style: solid;border-width: 3px;border-color: whitesmoke;">
+        <br>
+        <h3 style="-webkit-text-fill-color: tomato;">امتحان جديد</h3>
+        <input type="text" id="exam-title" placeholder="عنوان الامتحان">
+        <br><br>
+        <h3>تاريخ بدء الامتحان</h3>
+        <input type="date" [(ngModel)]="examDate">
+        <br>
+        <button class="btn btn-primary add" (click)="newExam()">امتحان جديد</button>        
+        <br><br>
+      </div>
+      <div style="border-style: solid;border-width: 3px;border-color: whitesmoke;margin-top: 64px;">
+        <br>
+        <h3 style="-webkit-text-fill-color: tomato;">مساعدين جدد</h3>
+        <input type="text" id="exam-title" placeholder="اسم المستخدم">
+        <button class="btn btn-primary add" (click)="addAssistant()">اضافه مساعد</button>        
+        <br><br>
+      </div>
+      <br><br><br><br><br><br>
+      <h1 style="-webkit-text-fill-color: #54a0b5"><b>امتحاناتي</b></h1>
+      <div>
+        <br><br><br>
+        <h2 style="display:inline-block">الامتحان الاول</h2>
+        <i class="fa fa-pencil edit" (click)="editExam()" aria-hidden="true" id="edit" title="تعديل/عرض الامتحان"></i>
+        <i class="fa fa-check edit" aria-hidden="true" id="correct" title="تصحيح الامتحان" routerLink='/correctionList/5'></i>
+        <i class="fa fa-trash edit" (click)="deleteExam()" aria-hidden="true" id="delete" title="الغاء الامتحان"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="text-align: center" *ngIf="type == 3">
+    <div class="col-md-12">
+      <h1 style="-webkit-text-fill-color: #54a0b5"><b>امتحاناتي</b></h1>
+      <div>
+        <br><br><br>
+        <h2 style="display:inline-block">الامتحان الاول</h2>
+        <i class="fa fa-check edit" aria-hidden="true" id="correct" title="تصحيح الامتحان" routerLink='/correctionList/5'></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="text-align: center" *ngIf="type == 4">
+      <div class="col-md-12">
+        <button class="btn btn-primary add" routerLink='/exam/i5327'>الدخول الي الامتحان</button>   
+        <br><br><br><br><br>     
+        <h1 style="-webkit-text-fill-color: #54a0b5"><b>امتحاناتي</b></h1>
+        <div>
+          <br><br><br>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <h2 style="-webkit-text-fill-color: #54a0b5">الامتحان</h2>
+              </div>
+              <div class="col-md-6">
+                <h2 style="-webkit-text-fill-color: #54a0b5">الدرجة</h2>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <h2>الامتحان الاول</h2>
+              </div>
+              <div class="col-md-6">
+                <h2>95</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <br><br><br><br>
 </div>
-<h1 id="name">Name</h1>
-<br><br><br>
-<button class="btn btn-light" id="editPBtn">Edit profile</button>
-<br><br><br>

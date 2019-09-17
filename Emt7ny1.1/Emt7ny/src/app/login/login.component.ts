@@ -15,10 +15,6 @@ export class LoginComponent implements OnInit {
    * For the forget password items
    */
   isShown: boolean = false;
-  /**
-   * For choosing between signup or login
-   */
-  login: boolean = true;
   constructor(
     private jarwis:JarwisService ,
     private token:TokenService,
@@ -31,24 +27,6 @@ export class LoginComponent implements OnInit {
   forgetPassword() {
     this.isShown = true;
   }
-  chooseLogin() {
-    this.login = true;
-    this.isShown = false;
-    document.getElementById("choose-login").style.backgroundColor = 'rgb(43, 164, 204)';
-    document.getElementById("choose-signup").style.backgroundColor = '#343a40';
-    this.form.email='';
-    this.form.password='';
-  }
-  chooseSignup() {
-    this.login = false;
-    document.getElementById("choose-login").style.backgroundColor = '#343a40';
-    document.getElementById("choose-signup").style.backgroundColor = 'rgb(43, 164, 204)';
-    this.form_signup.email='';
-    this.form_signup.name='';
-    this.form_signup.password='';
-    this.form_signup.password_confirmation='';
-  }
-
   /*
   *   login handling by ahmed waleed 
   */
@@ -79,28 +57,28 @@ export class LoginComponent implements OnInit {
   /*
   *  sign up handling by ahmed waleed 
   */
-  public error_2 =[];
+  // public error_2 =[];
 
-  public form_signup={
-    email:null,
-    password:null,
-    name:null,
-    password_confirmation:null,
-  };
+  // public form_signup={
+  //   email:null,
+  //   password:null,
+  //   name:null,
+  //   password_confirmation:null,
+  // };
 
-  onSubmit_signup(){
-    this.jarwis.signup(this.form_signup).subscribe(
-        data => this.handelResponse_2(data),
-        error_2 => this.handelError_2(error_2)
-      );
-  }
-  handelResponse_2(data){
-    this.token.handel(data.access_token);
-    this.chooseLogin();
-    this.router.navigateByUrl('/login');
-  }
-  handelError_2(error){
-    this.error=error.error.errors;
-  }
+  // onSubmit_signup(){
+  //   this.jarwis.signup(this.form_signup).subscribe(
+  //       data => this.handelResponse_2(data),
+  //       error_2 => this.handelError_2(error_2)
+  //     );
+  // }
+  // handelResponse_2(data){
+  //   this.token.handel(data.access_token);
+  //   this.chooseLogin();
+  //   this.router.navigateByUrl('/login');
+  // }
+  // handelError_2(error){
+  //   this.error=error.error.errors;
+  // }
 
 }

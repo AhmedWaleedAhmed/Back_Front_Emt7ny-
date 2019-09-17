@@ -1,0 +1,58 @@
+#logIn-div {
+    text-align: center;
+}
+.loginIn {
+    margin-top: 42px;
+    height: 48px;
+    text-align: center;
+    font-size: 20px;
+    background-color: whitesmoke;
+    position: static;
+    float: none;
+    width: 100%;
+    max-width: 80%;
+    border-radius: 12px;
+    border-style: solid;
+    border-color: whitesmoke;
+}
+#loginBtn {
+    background-color: #343a40;
+    height: 40px;
+    margin-top: 42px;
+    font-size: 18px;
+    -webkit-text-fill-color: white;
+    text-align: center;
+    width: 100%;
+    max-width: 80%;
+}
+#loginBtn:hover {
+    background-color: rgb(43, 164, 204);
+    -webkit-text-fill-color: white;
+}
+
+.loginIn:hover {
+    border-width: 2px;
+    border-style: solid;
+    border-color: lightblue;
+}
+#logOut {
+    float:right;
+    margin-top: 20px;
+}
+.container-fluid {
+    width: 100%;
+    min-width: 700px;
+}
+#profileIcon {
+    position: absolute;
+    margin-top: 8px;
+    font-size: 64px;
+    color: #54a0b5;
+    cursor: pointer;
+    left: 50%;
+}
+@media screen and (max-width: 725px) {
+    #profileIcon {
+        display: none;
+    }
+}

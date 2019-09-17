@@ -5,7 +5,7 @@
     <p style="margin-top: 12px ;display:inline-block ;font-size: 32px;-webkit-text-fill-color:#54a0b5 ">mt7ny</p>
   </a>
   <i class="fa fa-user-circle" aria-hidden="true" routerLink="/profile/Muhanad" id="profileIcon" title="My profile"></i>
-  <button class="btn btn-light" id="logOut" (click)="logout($event)" >تسجيل الخروج</button>
+  <button class="btn btn-light" id="logOut">تسجيل الخروج</button>
   <hr>
 </div>
 <br><br><br>
@@ -19,8 +19,6 @@
     <div class="col-md-12" style="text-align: center">
       <h1><b>السؤال الاول</b></h1>
       <img src="../../assets/img/background.jpeg" id="image">
-      <i class="fa fa-trash edit" aria-hidden="true" id="delete" title="الغاء السؤال"></i>
-      <i class="fa fa-pencil edit" aria-hidden="true" id="edit" title="تعديل السؤال"></i>
       <br><br>
       <h2><b>مكان السؤال اي تكتب السؤال هنا نفترض ان السؤال هو (ما هذه الصوره التي تظهر امامك) ؟</b></h2>
       <div id="{{fname}}">
@@ -43,8 +41,6 @@
     <div class="col-md-12" style="text-align: center">
       <h1><b>السؤال الثاني</b></h1>
       <img src="../../assets/img/background.jpeg" id="image">
-      <i class="fa fa-trash edit" aria-hidden="true" id="delete" title="الغاء السؤال"></i>
-      <i class="fa fa-pencil edit" aria-hidden="true" id="edit" title="تعديل السؤال"></i>
       <br><br>
       <h2><b>ما هذه الصورة؟</b></h2>
       <textarea name="question" id="question" placeholder="الاجابة"></textarea>
@@ -54,8 +50,6 @@
     <div class="col-md-12" style="text-align: center">
       <h1><b>السؤال الثالث</b></h1>
       <img src="{{img}}" id="image">
-      <i class="fa fa-trash edit" aria-hidden="true" id="delete" title="الغاء السؤال"></i>
-      <i class="fa fa-pencil edit" aria-hidden="true" id="edit" title="تعديل السؤال"></i>
       <br><br>
       <h2><b>ارسم رسمه جميله</b></h2>
       <div id="drawing-area">
@@ -68,14 +62,10 @@
   </div>
   <br><br><br><br><br><br><br>
   <div class="row">
-    <div class="col-md-4" style="text-align: center">
-      <button class="btn btn-danger" (click)="deleteExam()"><h2>مسح الامتحان</h2></button>
+    <div class="col-md-6" style="text-align: center">
     </div>
-    <div class="col-md-4" style="text-align: center">
-      <button class="btn btn-success" routerLink='/AddQuestion/5'><h2>اضافة سؤال</h2></button>
-    </div>
-    <div class="col-md-4" style="text-align: center">
-      <button class="btn btn-primary" (click)="submit()"><h2>اضافه الامتحان</h2></button>
+    <div class="col-md-6" style="text-align: center">
+      <button class="btn btn-primary" (click)="submit()"><h2>ارسال الامتحان</h2></button>
     </div>
   </div>
   <br><br><br><br><br>

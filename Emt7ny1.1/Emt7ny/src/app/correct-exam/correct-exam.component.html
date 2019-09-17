@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container-fluid" style="margin-top:16px;">
+  <a href="">
+    <img src="assets/img/logo.png" width="32px" height="32px" style="margin-left: 16px;margin-bottom: 12px;background-color: #54a0b5">
+    <p style="margin-top: 12px ;display:inline-block ;font-size: 32px;-webkit-text-fill-color:#54a0b5 ">mt7ny</p>
+  </a>
+  <i class="fa fa-user-circle" aria-hidden="true" routerLink="/profile/Muhanad" id="profileIcon" title="My profile"></i>
+  <button class="btn btn-light" id="logOut">تسجيل الخروج</button>
+  <hr>
+</div>
+<br><br><br>
+<div class="container" id="main-cnt" style="max-width:900px">
+  <div class="row">
+    <div class="col-xl-12" id="title">
+      <h1><b style="font-size: 64px">عنوان الامتحان</b></h1>
+    </div>
+  </div>
+  <div class="row q">
+    <div class="col-md-12" style="text-align: center">
+      <h1><b >السؤال الاول</b></h1>
+      <img src="../../assets/img/background.jpeg" id="image">
+      <br><br>
+      <h2><b>مكان السؤال اي تكتب السؤال هنا نفترض ان السؤال هو (ما هذه الصوره التي تظهر امامك) ؟</b></h2>
+      <div id="{{fname}}">
+      <label class="radio-inline">
+        <input [checked]="check(1)" type="radio" name="{{fname}}" value="1" disabled>الاختيار1
+      </label>
+      <label class="radio-inline">
+        <input [checked]="check(2)" type="radio" name="{{fname}}" value="2" disabled>الاختيار2
+      </label>
+      <label class="radio-inline">
+        <input [checked]="check(3)" type="radio" name="{{fname}}"value="3" disabled>الاختيار3
+      </label>
+      <label class="radio-inline">
+        <input [checked]="check(4)" type="radio" name="{{fname}}" value="4" disabled>الاختيار4
+      </label>
+      </div>
+      <input type="number" placeholder="الدرجة">
+    </div>
+  </div>
+  <div class="row q">
+    <div class="col-md-12" style="text-align: center">
+      <h1><b>السؤال الثاني</b></h1>
+      <img src="../../assets/img/background.jpeg" id="image">
+      <br><br>
+      <h2><b>ما هذه الصورة؟</b></h2>
+      <textarea name="question" id="question" placeholder="الاجابة" disabled></textarea>
+      <input type="number" placeholder="الدرجة">
+    </div>
+  </div>
+  <div class="row q" style="margin-bottom: 64px">
+    <div class="col-md-12" style="text-align: center">
+      <h1><b>السؤال الثالث</b></h1>
+      <img src="{{img}}" id="image">
+      <br><br>
+      <h2><b>ارسم رسمه جميله</b></h2>
+      <img src="{{img}}" id="image">
+      <br><br><br>
+      <input type="number" placeholder="الدرجة">
+    </div>
+    <br><br><br>
+  </div>
+<div class="container">
+  <div class="row" style="text-align: center">
+    <div class="col-md-6" >
+    </div>
+    <div class="col-md-6">
+      <button class="btn btn-primary" (click)="submit()"><h2>تم التصحيح</h2></button>
+    </div>
+  </div>
+  <br><br><br><br><br>
+</div>

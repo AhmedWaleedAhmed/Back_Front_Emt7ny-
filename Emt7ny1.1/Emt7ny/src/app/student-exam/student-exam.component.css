@@ -1,0 +1,77 @@
+#logOut {
+    float:right;
+    margin-top: 20px;
+}
+.container-fluid {
+    width: 100%;
+    min-width: 700px;
+}
+#profileIcon {
+    position: absolute;
+    margin-top: 8px;
+    font-size: 64px;
+    color: #54a0b5;
+    cursor: pointer;
+    left: 50%;
+}
+#image {
+    max-width: 700px;
+    padding-right: 16px;
+}
+.rad {
+    margin-right: 5px;
+    size: 50px;
+}
+#question {
+    max-width: 700px;
+    text-align: unset;
+    font-size: 20px;
+    background-color: whitesmoke;
+    width: 100%;
+    border-radius: 12px;
+    border-style: solid;
+    border-color: whitesmoke;
+    min-height: 128px;
+}
+.radio-inline {
+    font-size: 28px;
+}
+input[type="radio"] {
+    transform: scale(2);
+    margin-right: 8px;
+    margin-left: 32px;
+}
+.q {
+    border-style: solid;
+    border-width: 0px;
+    border-bottom-width: 2px;
+    border-color: whitesmoke;
+    margin-top: 48px;
+    padding-bottom: 32px;
+}
+#drawing-area {
+    border-radius: 3px;
+    border-style: solid;
+    border-color: black;
+    max-width: 700px;
+    text-align: center;
+    display: block;
+    margin-left: 76px;
+}
+#title {
+    border-style: solid;
+    border-color: black;
+    text-align: center;
+    margin-bottom: 64px;
+}
+@media screen and (max-width: 725px) {
+    #main-cnt {
+        width: 716px;
+    }
+    #drawing-area {
+        margin-left: 0px;
+    }
+    #profileIcon {
+        display: none;
+    }
+}

@@ -5,12 +5,12 @@
     <p style="margin-top: 12px ;display:inline-block ;font-size: 32px;-webkit-text-fill-color:#54a0b5 ">mt7ny</p>
   </a>
   <i class="fa fa-user-circle" aria-hidden="true" routerLink="/profile/Muhanad" id="profileIcon" title="My profile"></i>
-  <button class="btn btn-light" id="logOut" (click)="logout($event)" >Log out</button>
+  <button class="btn btn-light" id="logOut">تسجيل الخروج</button>
   <hr>
 </div>
 <br><br>
 <body>
-  <div class="container">       
+  <div class="container" id="main-cnt">       
     <div class="row">
       <div class="col-md-12" style="text-align: center">
         <input type="text" id="title" placeholder="Title">
@@ -20,10 +20,10 @@
         <div class="container" (click)="pic.click()" id="ctr">
             <img src="{{imgUrl}}" id="image">
             <i *ngIf="imgUrl !== '../../assets/img/grey.png'" class="fa fa-cloud-upload" id="upload" aria-hidden="true"></i> 
-            <h2 *ngIf="imgUrl !== '../../assets/img/grey.png' && answer !== 'MCQ'" id="upload-title">Upload image</h2>   
+            <h2 *ngIf="imgUrl !== '../../assets/img/grey.png' && answer !== 'MCQ'" id="upload-title">اضافة صورة</h2>   
         </div>
         <br>
-        <textarea name="question" id="question" placeholder="question"></textarea>
+        <textarea name="question" id="question" placeholder="السؤال"></textarea>
         <br><br><br>
         <form *ngIf= "answer === 'MCQ'" id="mque">
           <h5>1- <input type="text"></h5>
@@ -32,19 +32,19 @@
           <h5>4- <input type="text"></h5> 
           <br><br><br>
         </form>
-        <h3>Answer will be ?</h3>
+        <h3>نوع الاجابة</h3>
         <button (click)="mcq.click()">
-          <input type="radio" name="answer" value="MCQ" class="rad" #mcq [(ngModel)]="answer" checked> <h4 >MCQ</h4>
+          <input type="radio" name="answer" value="MCQ" class="rad" #mcq [(ngModel)]="answer" checked> <h4 >اختيار من المتعدد</h4>
         </button>
         <button (click)="tex.click()">
-          <input type="radio" name="answer" value="TEXT" class="rad" #tex [(ngModel)]="answer" checked> <h4 >Text area</h4>
+          <input type="radio" name="answer" value="TEXT" class="rad" #tex [(ngModel)]="answer" checked> <h4 >منطقة كتابة</h4>
         </button>
         <button (click)="dra.click()">
-          <input type="radio" name="answer" value="DRAWING" class="rad" #dra [(ngModel)]="answer" checked> <h4>Drawing area</h4>
+          <input type="radio" name="answer" value="DRAWING" class="rad" #dra [(ngModel)]="answer" checked> <h4>منطقة رسم</h4>
         </button> 
         <br><br><br><br>
-        <button class="btn btn-primary" style="margin-right:16px;">Add question</button>
-        <button class="btn btn-danger" routerLink="/previewExam/Ahmed/1">Preview exam</button>
+        <button class="btn btn-primary" style="margin-right:16px;">اضافه السؤال</button>
+        <button class="btn btn-danger" routerLink="/previewExam/Ahmed/1">عرض الامتحان</button>
       </div>
     </div>
   </div>
@@ -52,7 +52,7 @@
 <div class="container">
   <div class="row">
     <div style="margin-bottom: 24px;text-align: center" class="col-md-12">
-      <a href="">contact us</a>
+      <a href="">اتصل بنا</a>
     </div>
   </div>
 </div>

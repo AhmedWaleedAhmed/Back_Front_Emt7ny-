@@ -1,17 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AuthService } from '../Services/auth.service';
-import {  Router } from '@angular/router';
-import { TokenService } from '../Services/token.service';
 import { SignaturePad } from 'angular2-signaturepad/signature-pad';
 
 @Component({
-  selector: 'app-preview',
-  templateUrl: './preview.component.html',
-  styleUrls: ['./preview.component.css']
+  selector: 'app-student-exam',
+  templateUrl: './student-exam.component.html',
+  styleUrls: ['./student-exam.component.css']
 })
-export class PreviewComponent implements OnInit {
+export class StudentExamComponent implements OnInit {
 
-
+  constructor() { }
   @ViewChild(SignaturePad) signaturePad: SignaturePad;
 
   private signaturePadOptions: Object = {
@@ -24,21 +21,18 @@ export class PreviewComponent implements OnInit {
   img='../../assets/img/background.jpeg';
   fname = 'asd';
   lname = 'otta';
-  f: number[] = [0, 0];
-  constructor(
-    private router: Router ,
-    private Auth: AuthService,
-    private token:TokenService,
-  ) { }
-
+  f: number[] = [1, 0];
   ngOnInit() {
   }
-
+  /**
+   * Sending exam answer to back-end
+   */
   submit() {
     console.log('first = ' + this.f[0]);
     console.log('second = ' + this.f[1]);
     this.img = this.signaturePad.toDataURL();
   }
+  // tslint:disable-next-line: use-life-cycle-interface
   ngAfterViewInit() {
     // this.signaturePad is now available
     this.signaturePad.set('minWidth', 2); // set szimek/signature_pad options at runtime
@@ -70,12 +64,4 @@ export class PreviewComponent implements OnInit {
   }
   deleteExam() {
   }
-
-  logout(event : MouseEvent){
-    event.preventDefault();
-    this.token.remove();
-    this.Auth.changeAuthStatus(false);
-    this.router.navigateByUrl('');
-  }
-
 }
